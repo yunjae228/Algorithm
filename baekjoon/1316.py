@@ -1,17 +1,42 @@
-n = int(input())
+"""
+# 그룹 단어 체커
+예를 들면, ccazzzzbb는 c, a, z, b가 모두 연속해서 나타나고, 
 
-result = n
+kin도 k, i, n이 연속해서 나타나기 때문에 그룹 단어이지만, aabbbccb는 b가 떨어져서 나타나기 때문에 
+그룹 단어가 아니다.
+
+단어 N개를 입력으로 받아 그룹 단어의 개수를 출력하는 프로그램을 작성하시오.
+"""
+
+# 첫째줄의 입력 단어 개수를 변수로 초기화 할 필요가 있다.
+
+# 출력으로 입력 단어의갯수 중 그룹단어의 갯수를 출력해야 하기에 갯수 증가가 아닌, 
+# 주어진 갯수 number에서 그룹단어가 아닐경우 1을 마이너스 하는식으로 가져간다.
+
+# 입력 받은 수 만큼 반복문을 실행한다. 첫번째 단어부터 n 번째 단어까지 반복문을 실행한다.
+
+# 첫번째 알파벳과 두번째 알파벳이 일치하는지 검사한다.
+
+# 만약, 일치한다면 다음 알파벳으로 continue를 한다.
+
+# 만약, 다음단어와 일치하지 않는데, 전체 문자 안에 현재 알파벳이 포함되어 있을경우에는 그룹단어가 아니므로, 주어진 갯수 number에서 1을 뺀다
+
+# 그룹단어가 아니니, 검증할 필요가 없으므로, break를 해 , 다음 줄의 단어로 넘어갈 수 있도록 한다.
 
 
-for i in range(n):
-    word = str(input())
+number = int(input())
 
-    for j in range(len(word)-1):
-        if word[j] == word[j+1]:
-            continue
-        elif word[j] in word[j+1:]:
-            result -= 1
-            break
-            
-print(result)
-            
+for i in range(number):
+    # 첫 번째 단어 변수 선언
+    s = input()
+
+    for j in range(len(s)):
+        if j+1 < len(s):
+            if s[j] == s[j+1]:
+                continue
+            elif s[j] in s[j+1:]:
+                number -= 1
+                break
+
+print(number)
+
